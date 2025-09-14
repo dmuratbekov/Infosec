@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>CARD PAYMENT — Simulation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css">
+
+  <style>
+    body { background:#f5f6f8; }
+    .padding { padding: 24px 0; }
+    .badge-sim { background:#ffe7a8; color:#7a5b00; border-radius:8px; padding:8px 12px; font-size:12px; }
+    .ok { color:#0a7d38; font-size:13px; display:none; margin-top:8px; }
+    .err { color:#b42318; font-size:13px; display:none; margin-top:8px; }
+    .sent-btn {
+           width: 100%;
+           padding: 10px;
+           background-color: #21BF5C;
+           color: white;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           font-size: 14px;
+       }
+  </style>
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
+
+<div class="padding">
+  <div class="row">
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <form id="cardForm">
+	    <div class="card-header">
+              <div class="row">
+                <div class="col-md-6">
+                  <span>CREDIT/DEBIT CARD PAYMENT</span>
+                </div>
+                <div class="col-md-6 text-right" style="margin-top: -5px;">
+                  <img src="https://img.icons8.com/color/36/000000/visa.png" alt="Visa">
+                  <img src="https://img.icons8.com/color/36/000000/mastercard.png" alt="Mastercard">
+                  <img src="https://img.icons8.com/color/36/000000/amex.png" alt="Amex">
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body" style="min-height: 350px">
+              <div class="form-group">
+                <label for="cc-number" class="control-label">CARD NUMBER</label>
+                <input id="cc-number" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
+                <small class="text-muted">Examples of card: 4242 4242 4242 4242, 4111 1111 1111 1111, 5555 5555 5555 4444.</small>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cc-exp" class="control-label">CARD EXPIRY</label>
+                    <input id="cc-exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="MM / YY" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cc-cvc" class="control-label">CARD CVC</label>
+                    <input id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="•••" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cc-name" class="control-label">CARD HOLDER NAME</label>
+                <input id="cc-name" type="text" class="input-lg form-control" placeholder="IVAN IVANOV" required>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="sent-btn">Add Card</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("cardForm").addEventListener("submit", function(event) {
+       event.preventDefault(); // Prevent the default form submission
+
+
+       const holder = document.getElementById("cc-name").value;
+       const number = document.getElementById("cc-number").value;
+       const expiry = document.getElementById("cc-exp").value;
+       const cvv = document.getElementById("cc-cvc").value;
+
+
+
+       // Prepare the data to be sent to the API
+       const data = {
+           holder: holder,
+           number: number,
+	   expiry: expiry,
+           cvv: cvv	
+       };
+
+
+       // Send the data using fetch to an API (replace 'YOUR_API_URL' with the actual endpoint)
+       fetch('http://localhost:8000/submit', {
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(data),
+       })
+       .then(response => response.json()) // Parse the JSON response
+       .then(data => {
+           // Handle the API response here
+           console.log('Success:', data);
+           alert('Added successful');
+       })
+       .catch((error) => {
+           // Handle any errors that occur during the fetch
+           console.error('Error:', error);
+           alert('Adding Card failed');
+       });
+   });
+
+</script>
+
+</body>
+</html>
+
