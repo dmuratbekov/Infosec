@@ -1,0 +1,4 @@
+test for count word
+test
+test it
+let's see the tests
