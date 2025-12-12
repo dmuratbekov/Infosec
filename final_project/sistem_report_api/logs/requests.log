@@ -1,0 +1,34 @@
+2025-12-12 14:25:30,439	INFO	[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.167.200:5000
+2025-12-12 14:25:30,440	INFO	[33mPress CTRL+C to quit[0m
+2025-12-12 14:25:39,955	INFO	127.0.0.1 - - [12/Dec/2025 14:25:39] "GET / HTTP/1.1" 200 -
+2025-12-12 14:25:48,453	INFO	127.0.0.1 - - [12/Dec/2025 14:25:48] "[31m[1mGET /logs HTTP/1.1[0m" 401 -
+2025-12-12 14:26:15,607	INFO	127.0.0.1 - - [12/Dec/2025 14:26:15] "[33mGET /logs/qwerty HTTP/1.1[0m" 404 -
+2025-12-12 14:27:37,621	INFO	127.0.0.1 - - [12/Dec/2025 14:27:37] "[31m[1mGET /logs?qwerty HTTP/1.1[0m" 401 -
+2025-12-12 14:27:50,756	INFO	127.0.0.1 - - [12/Dec/2025 14:27:50] "[31m[1mGET /logs HTTP/1.1[0m" 401 -
+2025-12-12 14:30:38,163	INFO	127.0.0.1 - - [12/Dec/2025 14:30:38] "[33mGET /logs/ADMIN-API-KEY HTTP/1.1[0m" 404 -
+2025-12-12 14:30:47,805	INFO	127.0.0.1 - - [12/Dec/2025 14:30:47] "[33mGET /logs/X-API-KEY HTTP/1.1[0m" 404 -
+2025-12-12 14:30:53,461	INFO	127.0.0.1 - - [12/Dec/2025 14:30:53] "[31m[1mGET /logs HTTP/1.1[0m" 401 -
+2025-12-12 14:35:46,770	INFO	127.0.0.1 - - [12/Dec/2025 14:35:46] "GET /logs HTTP/1.1" 200 -
+2025-12-12 14:36:09,711	INFO	127.0.0.1 - - [12/Dec/2025 14:36:09] "GET /logs HTTP/1.1" 200 -
+2025-12-12 14:36:29,243	INFO	{"path": "/system", "remote_addr": "172.21.160.1", "summary": {"cpu": 0.0, "ram": 12.8, "disk": 0.3}}
+2025-12-12 14:36:29,262	INFO	172.21.160.1 - - [12/Dec/2025 14:36:29] "GET /system HTTP/1.1" 200 -
+2025-12-12 14:36:35,892	INFO	127.0.0.1 - - [12/Dec/2025 14:36:35] "GET /logs HTTP/1.1" 200 -
+2025-12-12 16:19:00,402	INFO	[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.167.200:5000
+2025-12-12 16:19:00,404	INFO	[33mPress CTRL+C to quit[0m
+2025-12-12 16:19:08,833	INFO	127.0.0.1 - - [12/Dec/2025 16:19:08] "GET / HTTP/1.1" 200 -
+2025-12-12 16:19:18,227	INFO	{"path": "/system", "remote_addr": "172.21.160.1", "summary": {"cpu": 0.5, "ram": 12.5, "disk": 0.3}}
+2025-12-12 16:19:18,245	INFO	172.21.160.1 - - [12/Dec/2025 16:19:18] "GET /system HTTP/1.1" 200 -
+2025-12-12 16:19:26,190	INFO	{"path": "/cpu", "remote_addr": "127.0.0.1", "summary": {"cpu": 1.0}}
+2025-12-12 16:19:26,190	INFO	127.0.0.1 - - [12/Dec/2025 16:19:26] "GET /cpu HTTP/1.1" 200 -
+2025-12-12 16:19:33,164	INFO	{"path": "/disk", "remote_addr": "127.0.0.1", "summary": {"disk": 0.3}}
+2025-12-12 16:19:33,164	INFO	127.0.0.1 - - [12/Dec/2025 16:19:33] "GET /disk HTTP/1.1" 200 -
+2025-12-12 16:19:43,091	INFO	{"path": "/memory", "remote_addr": "127.0.0.1", "summary": {"ram": 12.3}}
+2025-12-12 16:19:43,092	INFO	127.0.0.1 - - [12/Dec/2025 16:19:43] "GET /memory HTTP/1.1" 200 -
+2025-12-12 16:19:51,918	INFO	127.0.0.1 - - [12/Dec/2025 16:19:51] "GET /health HTTP/1.1" 200 -
+2025-12-12 16:20:03,736	INFO	127.0.0.1 - - [12/Dec/2025 16:20:03] "GET /logs HTTP/1.1" 200 -
